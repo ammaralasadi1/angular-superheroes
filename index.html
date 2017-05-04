@@ -1,12 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Superhero Phone Book</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<html lang='en' ng-app='superHero'>
+  <head>
+    <meta charset="utf-8">
+    <title>superHero</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body ng-controller='superHerosController as vm'>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
   <script src="app.js"></script>
-</body>
+  <h1>Super Heroes</h1>
+
+    <div ng-repeat="superHero in vm.superHeros">
+      <p> {{superHero.name}}</p>
+      <p> {{superHero.number}} </p>
+      <p>{{superHero.group}}</P>
+      <img src="{{superHero.img}}" >
+    </div>
+
+    <div >
+      <input type="text">
+      <button ng-click = vm.addSuperHeros()>Add a Hero</button>
+       <p>User input: {{vm.newSuperHero}}</p>
+    </div>
+
+
+
+  </body>
+
+  </body>
 </html>
