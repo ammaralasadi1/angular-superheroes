@@ -2,30 +2,29 @@
 <html lang='en' ng-app='superHero'>
   <head>
     <meta charset="utf-8">
-    <title>superHero</title>
+    <title>Super Contacts</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="app.js"></script>
   </head>
   <body ng-controller='superHerosController as vm'>
+  <h1>Super Contacts</h1>
+  <input type="text" ng-model="search">
+  <button ng-click = "order = 'name'" placehol>Order by Name</button>
+  <button ng-click = "order = 'group'">Order By Group</button>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-  <script src="app.js"></script>
-  <h1>Super Heroes</h1>
 
-    <div ng-repeat="superHero in vm.superHeros">
-      <p> {{superHero.name}}</p>
-      <p> {{superHero.number}} </p>
-      <p>{{superHero.group}}</P>
-      <img src="{{superHero.img}}" >
+  <div ng-class="superHero.group" ng-repeat="superHero in vm.superHeros | orderBy: order |filter: search " >
+
+              <p> {{superHero.name}}</p>
+              <p> {{superHero.number}} </p>
+              <p>{{superHero.group}}</P>
+              <img src="{{superHero.img}}">
+
+
+        </div>
+
     </div>
-
-    <div >
-      <input type="text">
-      <button ng-click = vm.addSuperHeros()>Add a Hero</button>
-       <p>User input: {{vm.newSuperHero}}</p>
-    </div>
-
-
-
   </body>
 
   </body>

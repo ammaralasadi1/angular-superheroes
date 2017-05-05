@@ -65,4 +65,6 @@ angular
 
 function superHerosControllerFuncttion() {
   this.superHeros = superheroList
+
+
 }
